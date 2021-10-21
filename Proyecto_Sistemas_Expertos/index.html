@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Examen I</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/all.css"><!--FontAwesome-->
+    <link rel="stylesheet" href="css/main.css">
+    
+</head>
+<body>
+  <nav class="navbar header-nav navbar-expand-lg fixed-top">
+    <h3 class="titulo">Fastilery</h3>
+    <button class="navbar-toggler"  data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fas fa-bars btn-barra"></i>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="input-group mb-2 mt-2">
+        <input type="text" class="form-control" placeholder="Buscar productos" aria-label="Recipient's username" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+          <button class="btn btn-buscar" type="button"><i class="fas fa-search"></i></button>
+        </div>
+      </div>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <i class="fas fa-share-alt"></i>  Redes Sociales
+        </li>
+        <li class="nav-item dropdown">
+          <span class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-users"></i> Sobre Nosotros
+          </span>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: #840B0B;">
+            <a class="dropdown-item" href="#">Misión</a>
+            <a class="dropdown-item" href="#">Visión</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Forma Parte de nuestra comunidad</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <i class="fas fa-cogs"></i> Ayuda y configuraciones de pagina 
+        </li>
+      </ul>
+    </div>
+  </nav>
+    
+    
+
+<!-- Footer -->
+<footer class="page-footer font-small special-color-dark pt-2 pl-1 pr-1 fixed-bottom">
+
+    <!-- Footer Elements -->
+    <div class="container">
+      <!-- option buttons -->
+      <div class="container-fluid seleccion">
+        <ul class="row justify-content-between list-unstyled list-inline">
+            <li class="row rounded-circle">
+                <i class="fas fa-home fa-2x"> </i><br>
+            </li>
+            <li class="row rounded-circle">
+                <i class="fas fa-shopping-cart fa-2x"> </i><br>
+
+            </li>
+            <li class="row rounded-circle logo-bar">
+                <img class="rounded-circle" src="img/Logo (1).png" alt="">
+            </li>
+            <li class="row active rounded-circle">
+                <i class="fas fa-user-circle fa-2x"> </i><br>
+            </li>
+            <li class="row rounded-circle">
+                <i class="fas fa-cog fa-2x"> </i><br>
+            </li>
+        </ul>
+      </div>
+      <!-- option buttons -->
+  
+    </div>
+    <!-- Footer Elements -->
+  
+  </footer>
+  <!-- Footer -->
+
+<!-- Button trigger modal -->
+
+<div class="modal fade" id="guardarCancion" tabindex="-1" role="dialog" aria-labelledby="modal-guardar-cancion" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content modal-sm estilo-modal">
+            <div class="modal-body">
+                <div class="d-flex">
+                   <h3>Agregar Canción</h3> 
+                </div>
+                <div class="d-flex">
+                    
+                </div>
+                <div id="body-modal-coment">
+                </div>
+            </div>
+            <div class="modal-footer" id="footer-modal">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-success"><b>Guardar</b></button>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/controlador.js"></script>
+</body>
+</html>
