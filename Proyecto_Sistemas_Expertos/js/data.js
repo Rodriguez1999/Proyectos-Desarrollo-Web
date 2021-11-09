@@ -169,3 +169,9 @@ var playlistsData = [
     }
 ]
 
+var categorias = {
+    nombreCategoria:"",
+    urlImagen:"../img/Logo (1).png",
+    empresas =[]
+};
+
