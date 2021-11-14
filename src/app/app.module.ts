@@ -11,6 +11,7 @@ import { CompanyProfileComponent } from './component/company-profile/company-pro
 import { ProductsComponent } from './component/products/products.component';
 import { SingleProductComponent } from './component/single-product/single-product.component';
 import { ShoppingCartComponent } from './component/shopping-cart/shopping-cart.component';
+import { CcProcessComponent } from './component/cc-process/cc-process.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ShoppingCartComponent } from './component/shopping-cart/shopping-cart.c
     CompanyProfileComponent,
     ProductsComponent,
     SingleProductComponent,
-    ShoppingCartComponent
+    ShoppingCartComponent,
+    CcProcessComponent
   ],
   imports: [
     BrowserModule,

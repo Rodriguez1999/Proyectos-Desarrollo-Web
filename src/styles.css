@@ -51,7 +51,7 @@ body {
 .seleccion ul li:hover {
   color: white;
   background-color: #4e0202;
-  transition: 1s;
+  transition: 0.2s;
   display: block;
 }
 
