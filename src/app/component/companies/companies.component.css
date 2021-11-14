@@ -1,0 +1,13 @@
+.company{
+  border: 0;
+  background-color: #fff;
+}
+ .img-fluid{
+   max-height: 200px;
+   min-height: 200px;
+   object-fit: contain;
+ }
+
+.companies-container{
+  margin-bottom: 70px;
+}
