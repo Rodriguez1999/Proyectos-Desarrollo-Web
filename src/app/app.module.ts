@@ -12,6 +12,7 @@ import { ProductsComponent } from './component/products/products.component';
 import { SingleProductComponent } from './component/single-product/single-product.component';
 import { ShoppingCartComponent } from './component/shopping-cart/shopping-cart.component';
 import { CcProcessComponent } from './component/cc-process/cc-process.component';
+import { DeliveryUbicationComponent } from './component/delivery-ubication/delivery-ubication.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { CcProcessComponent } from './component/cc-process/cc-process.component'
     ProductsComponent,
     SingleProductComponent,
     ShoppingCartComponent,
-    CcProcessComponent
+    CcProcessComponent,
+    DeliveryUbicationComponent
   ],
   imports: [
     BrowserModule,
