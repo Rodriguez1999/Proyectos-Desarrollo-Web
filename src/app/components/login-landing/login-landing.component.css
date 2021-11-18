@@ -1,0 +1,71 @@
+.fondo {
+  background: #5d4157; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #de2a2a,
+    #1e1648
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to left,
+    #de2a2a,
+    #1e1648
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  width: 100%;
+  height: 100vh;
+}
+
+.h1 {
+  color: #fff;
+  font-family: "Rowdies", cursive;
+  position: absolute;
+}
+.motorista {
+  max-width: 40%;
+  mix-blend-mode: overlay;
+  position: absolute;
+  transform: translate(1000px, 10px);
+}
+.btn-danger {
+  font-family: 'Raleway', sans-serif;
+  border-color: #f0da2c;
+  background-color: #f0da2c;
+  border-radius: 20px;
+  height: 50px;
+  width: 300px;
+  color: #000;
+}
+
+.btn-danger:focus {
+  box-shadow: 0 0 0 0.2rem rgb(240 218 44 / 30%);
+}
+
+.btn-danger:not(:disabled):not(.disabled).active,
+.btn-danger:not(:disabled):not(.disabled):active,
+.show > .btn-danger.dropdown-toggle {
+  color: #fff;
+  background-color: #fb2808;
+  border-color: #fb2808;
+}
+
+.slogan{
+  font-size:5rem;
+  padding-left: 5%;
+  padding-top: 20%;
+}
+
+.login{
+  position: absolute;
+  transform: translate(100px, 600px)
+}
+
+.logo{
+  padding-top: 5%;
+  padding-left:5%
+}
+
+.enlace a{
+  color: #fff;
+  text-decoration: underline;
+  position: absolute;
+  transform: translate(1500px, 900px)
+}

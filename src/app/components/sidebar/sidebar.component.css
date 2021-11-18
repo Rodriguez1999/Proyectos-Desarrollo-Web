@@ -1,0 +1,84 @@
+.col-6{
+  padding: 0;
+}
+
+
+.h1 {
+  color: #fff;
+  font-family: "Rowdies", cursive;
+  font-size: 4rem;
+  margin-top:10%
+
+}
+.fondo{
+  text-align: center;
+  background-color: #36D3CC;
+  width: 100%;
+  height: 100vh;
+}
+
+.service{
+  margin-top:25%;
+  background-color: #36D3CC;
+  text-align: center;
+}
+.super{
+  mix-blend-mode: exclusion;
+  object-fit: contain;
+  background-color: #C92C33;
+  position: absolute;
+  width:658px ;
+  height:494px;
+  display: inline-block;
+}
+
+.service2{
+  background-color: #fff;
+  text-align: center;
+}
+
+.simple-login-container{
+  width:350px;
+  max-width:100%;
+  margin:80px auto;
+}
+
+.simple-login-container .btn-login{
+  background-color:#FF5964;
+  color:#fff;
+}
+
+a{
+  color:#fff;
+}
+
+input{
+  -webkit-box-shadow: 1px 6px 12px 1px rgb(0 0 0 / 66%);
+}
+.form-control {
+  display: block;
+  margin-bottom: 2.5rem;
+  width: 100%;
+  height: calc(3rem + .75rem + 2px);
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 0;
+  border-radius: 2rem;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+input.btn.btn-block.btn-login {
+  max-width: 250px;
+  height: 50px;
+  border-radius: 25px;
+  background-color: #FF5964 !important;
+}
+
+.btn-block{
+  display: inline-block;
+}
