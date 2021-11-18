@@ -1,0 +1,157 @@
+<app-header></app-header>
+<div class="limites" id="accordion">
+    <h3 class="text-muted text-center">Pedidos en Progreso</h3>
+    <div class="card">
+      <div class="card-header justify-content-between align-items-center p-3" id="headingOne">
+        <span>
+            <h5 class="mb-0">
+                <b>Pedido N°</b>: 199917070319
+            </h5>
+        </span><br>
+        <span>
+            <h6 class="mb-0">
+                <b>Usuario</b>: Nicolas Perez
+            </h6>
+        </span><br>
+        <span>
+            <h6 class="mb-0">
+                <b>Empresa</b>: Burger King
+            </h6>
+        </span>
+        <hr>
+        <h6 class="mb-0 text-muted text-center">
+           <b>Progreso</b> 
+        </h6>
+        <div class="p-2">
+            <p><ngb-progressbar type="success" [value]="50" [striped]="true" [animated]="true"><i>50%</i></ngb-progressbar></p>
+        </div>
+        <div class="row justify-content-between p-2">
+            <span>
+                <button class="btn btn-info" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Detalles</button>
+                <button class="btn btn-secondary ml-2" (click)="openBackDropCustomClass(content)">Ir al mapa</button>
+            </span>
+            <button class="btn btn-danger">Entregado</button> 
+        </div> 
+      </div>
+  
+      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Usuario</th>
+                    <td>Nicolas Perez</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Telefono</th>
+                    <td>+504 9805-8713</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Direccion</th>
+                    <td>Residencial Centro America #2, casa 276 frente a pulperia La fortuna</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Pedido</th>
+                    <td>Econocombo King Familiar</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Precio</th>
+                    <td>HNL 425.00</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Estado</th>
+                    <td class="text-success">Pagado</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header justify-content-between align-items-center p-3" id="headingTwo">
+            <span>
+                <h5 class="mb-0">
+                    <b>Pedido N°</b>: 199917070319
+                </h5>
+            </span><br>
+          <span>
+              <h6 class="mb-0">
+                  <b>Usuario</b>: Nicolas Perez
+              </h6>
+          </span><br>
+          <span>
+              <h6 class="mb-0">
+                  <b>Empresa</b>: Burger King
+              </h6>
+          </span>
+          <hr>
+          <h6 class="mb-0 text-muted text-center">
+             <b>Progreso</b> 
+          </h6>
+          <div class="p-2">
+              <p><ngb-progressbar type="success" [value]="75" [striped]="true" [animated]="true"><i>75%</i></ngb-progressbar></p>
+          </div>
+          <div class="row justify-content-between p-2">
+              <span>
+                  <button class="btn btn-info" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">Detalles</button>
+                  <button class="btn btn-secondary ml-2" (click)="openBackDropCustomClass(content)">Ir al mapa</button>
+              </span>
+              <button class="btn btn-danger">Entregado</button> 
+          </div> 
+        </div>
+    
+        <div id="collapseTwo" class="collapse down" aria-labelledby="headingTwo" data-parent="#accordion">
+          <div class="card-body">
+              <table class="table table-striped">
+                  <thead>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">Usuario</th>
+                      <td>Nicolas Perez</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Telefono</th>
+                      <td>+504 9805-8713</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Direccion</th>
+                      <td>Residencial Centro America #2, casa 276 frente a pulperia La fortuna</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Pedido</th>
+                      <td>Econocombo King Familiar</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Precio</th>
+                      <td>HNL 425.00</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Estado</th>
+                      <td class="text-danger">Pendiente de pago</td>
+                    </tr>
+                  </tbody>
+                </table>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <ng-template #content let-modal>
+    <div class="modal-header modal-mapa">
+      <h4 class="modal-title text-center">Sitio de Entrega</h4>
+      <button type="button" class="close text-light" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p><app-mapa></app-mapa></p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-danger" (click)="modal.close('Close click')">Close</button>
+    </div>
+  </ng-template>
+  <app-footer></app-footer>

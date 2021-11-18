@@ -1,0 +1,67 @@
+<app-header></app-header>
+<div class="container limites">
+    <h3 class="text-muted text-center">Pedidos Disponibles</h3>
+    <div class="row justify-content-center">
+        <!--Targeta de pedidos disponibles-->
+        <div class="card mt-2 m-1" style="width: 18rem;">
+            <img class="card-img-top" src="../../assets/img/card.jpg" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Burger King</h5>
+              <h6 class="card-subtitle text-muted">Descripcion pedido</h6>
+              <p class="card-text">Paquete familiar, econocombo King Max para 4 personas.</p><hr>
+              <p class="card-text"><b>Entrega:</b> Col. palmira primera calle...</p>
+              <div class="row justify-content-between">
+                    <a href="#" class="btn btn-success">Tomar</a>
+                    <a href="#" class="btn btn-danger">Rechazar</a>
+                    <a href="#" class="btn btn-secondary" (click)="openBackDropCustomClass(content)">Mapa</a>
+              </div>
+            </div>
+        </div>
+        <!--Targeta de pedidos disponibles-->
+
+        <div class="card mt-2 m-1" style="width: 18rem;">
+            <img class="card-img-top" src="../../assets/img/card.jpg" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Burger King</h5>
+              <h6 class="card-subtitle text-muted">Descripcion pedido</h6>
+              <p class="card-text">Paquete familiar, econocombo King Max para 4 personas.</p><hr>
+              <p class="card-text"><b>Entrega:</b> Col. palmira primera calle...</p>
+              <div class="row justify-content-between">
+                    <a href="#" class="btn btn-success">Tomar</a>
+                    <a href="#" class="btn btn-danger">Rechazar</a>
+                    <a href="#" class="btn btn-secondary" (click)="openBackDropCustomClass(content)">Mapa</a>
+              </div>
+            </div>
+        </div>
+        <div class="card mt-2 m-1" style="width: 18rem;">
+            <img class="card-img-top" src="../../assets/img/card.jpg" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Burger King</h5>
+              <h6 class="card-subtitle text-muted">Descripcion pedido</h6>
+              <p class="card-text">Paquete familiar, econocombo King Max para 4 personas.</p><hr>
+              <p class="card-text"><b>Entrega:</b> Col. palmira primera calle...</p>
+              <div class="row justify-content-between">
+                    <a href="#" class="btn btn-success">Tomar</a>
+                    <a href="#" class="btn btn-danger">Rechazar</a>
+                    <a href="#" class="btn btn-secondary" (click)="openBackDropCustomClass(content)">Mapa</a>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title modal-mapa">Sitio de Entrega</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p><app-mapa></app-mapa></p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-danger" (click)="modal.close('Close click')">Close</button>
+  </div>
+</ng-template>
+<app-footer></app-footer>

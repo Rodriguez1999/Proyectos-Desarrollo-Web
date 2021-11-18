@@ -1,0 +1,76 @@
+<div class="container mt-5 pt-3 pb-4">
+    <a href="#" class="editar-"><i class="fas fa-user-edit"></i> Editar</a>
+    <div class="row justify-content-center">
+        <div class="row rounded-circle justify-content-center align-items-center contenedor-perfil" >
+            <img class="foto-perfil rounded-circle" src="../../assets/img/perfil-2.jpg" alt="">
+            <div style="position: absolute; margin-top: 180px;">
+                <b>Alejandro Gomez, 29</b>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-header></app-header>
+<div class="container pt-4 limites">
+    <div class="card rounded borde-shadown w-100 mb-3">
+        <div class=" row card-body justify-content-between">
+          <h5 class="card-title text-muted"><i class="fas fa-info-circle"></i>  Información Personal </h5>
+          <table class="table table-striped">
+            <thead>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row"><i class="fas fa-qrcode"></i> Código</th>
+                <td>MT-0001</td>
+              </tr>
+              <tr>
+                <th scope="row"><i class="fas fa-at"></i> Correo</th>
+                <td>Nicolas@gmail.com</td>
+              </tr>
+              <tr>
+                <th scope="row"><i class="fas fa-mobile-alt"></i>  Telefono</th>
+                <td>+504 9805-8713</td>
+              </tr>
+              <tr>
+                <th scope="row"><i class="fas fa-motorcycle"></i>  Placa</th>
+                <td>MAU 2021</td>
+              </tr>
+              <tr>
+                <th scope="row"><i class="fas fa-map-marker-alt"></i>  Lugar</th>
+                <td>Tegucigalpa, Francisco Morazán</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+    </div>
+
+    <div class="card rounded borde-shadown w-100 mb-3">
+        <div class=" row card-body justify-content-between">
+          <h5 class="card-title text-muted"><i class="fas fa-star"></i>  Evaluación </h5>
+
+            <ngb-rating [(rate)]="currentRate">
+                <ng-template let-fill="fill" let-index="index">
+                    <span class="star" [class.filled]="fill === 100" [class.bad]="index < 5">&#9733;</span>
+                </ng-template>
+            </ngb-rating>
+
+        </div>
+    </div>
+
+    <div class="card rounded borde-shadown w-100 mb-3">
+        <div class=" row card-body justify-content-between">
+          <h5 class="card-title text-muted"><i class="fas fa-coins"></i>  Balance </h5>
+          <p class="card-text"><b>HNL 2,500.00</b></p>
+        </div>
+    </div>
+
+    <div class="card rounded borde-shadown w-100 mb-3">
+        <div class=" row card-body justify-content-between">
+          <h5 class="card-title text-muted"><i class="fas fa-list"></i>  Historial de pedidos</h5>
+          <button class="btn btn-danger">Ver Historial</button>
+        </div>
+    </div>
+
+    <button class="btn btn-danger btn-lg btn-block">Cerrar Sesión</button>
+</div>
+<app-footer></app-footer>
