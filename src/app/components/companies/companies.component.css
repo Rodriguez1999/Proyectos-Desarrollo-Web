@@ -1,0 +1,24 @@
+.empresas{
+  margin: 0;
+  display:block;
+  position: fixed;
+  top: 10%;
+  right: 5%;
+  width: 75%;
+
+}
+
+.empresas .h2{
+  font-family: "Rowdies", cursive;
+  margin-bottom: 40px;
+}
+
+.row h6{
+  text-align: center;
+  margin: 0;
+}
+
+.row p {
+  text-align: center;
+  margin: 0;
+}
