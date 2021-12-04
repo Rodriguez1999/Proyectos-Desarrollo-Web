@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
 mongoose
-  .connect("mongodb://127.0.0.1:27017/companydb")
+  .connect("mongodb+srv://usuario-admin:asd.456@agromaster.lpm75.mongodb.net/fastilery?retryWrites=true&w=majority")
   .then((db) => console.log("Connected to Mongo"))
   .catch((err) => console.log("Error connecting to Mongo: ", err));
