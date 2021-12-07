@@ -2,9 +2,11 @@ import {Schema,model} from 'mongoose';
 
 const productSchema = new Schema({
     name: String,
-    category: String,
+    companyID: String,
     price: Number,
-    imgURL: String
+    imgURL: String,
+    status:Number,
+    description: String,
 },{
     timestamps: true,
     versionKey:false
