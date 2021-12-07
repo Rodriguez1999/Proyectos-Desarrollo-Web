@@ -6,10 +6,17 @@ export const createProduct = async (req, res) => {
   console.log(req.body);
 
   //Destructuring el objeto de req
-  const { name, category, price, imgURL } = req.body;
+  const { name, companyID, price, imgURL, status, description } = req.body;
 
   // Asignando los valores enviados por el JSON a un Producto
-  const newProduct = new Product({ name, category, price, imgURL });
+  const newProduct = new Product({
+    name,
+    companyID,
+    price,
+    imgURL,
+    status,
+    description,
+  });
 
   //Guardando el producto en la base de datos
   const productSaved = await newProduct.save();
