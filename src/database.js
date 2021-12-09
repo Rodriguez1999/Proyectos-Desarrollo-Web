@@ -1,6 +1,8 @@
 import mongoose from "mongoose";
-
+require("dotenv").config({path:'./variables.env'});
+ 
+//process.env.
 mongoose
-  .connect("mongodb://127.0.0.1:27017/companydb")
+  .connect(process.env.DB_URL)
   .then((db) => console.log("Connected to Mongo"))
   .catch((err) => console.log("Error connecting to Mongo: ", err));
