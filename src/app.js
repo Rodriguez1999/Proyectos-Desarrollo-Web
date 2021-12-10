@@ -7,7 +7,12 @@ import userRoutes from "./routes/user.routes";
 import {createRoles} from './libs/initialSetup';
 import orderRoutes from "./routes/order.routes";
 import companyRoutes from "./routes/company.routes";
+<<<<<<< HEAD
 import cors from 'cors';
+=======
+import cors from "cors";
+import bodyParser from "body-parser";
+>>>>>>> dw-proyecto/backend-Isaacv2
 
 const app = express();
 
@@ -16,8 +21,14 @@ createRoles();
 app.use(morgan("dev"));
 
 app.use(express.json());
+<<<<<<< HEAD
 
 app.use(cors());
+=======
+app.use(cors());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:true}));
+>>>>>>> dw-proyecto/backend-Isaacv2
 
 app.set("pkg", pkg);
 

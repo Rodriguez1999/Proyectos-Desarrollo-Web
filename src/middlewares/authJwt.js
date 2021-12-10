@@ -45,7 +45,10 @@ export const isDriver = async (req, res, next) => {
 
 export const isAdmin = async (req, res, next) => {
   // encontramos el usuario
+<<<<<<< HEAD
   
+=======
+>>>>>>> dw-proyecto/backend-Isaacv2
   const user = await User.findById(req.userId);
   //sacamos los roles del usuario
   const roles = await Role.find({ _id: { $in: user.roles } });
@@ -58,4 +61,8 @@ export const isAdmin = async (req, res, next) => {
   }
 
   return res.status(403).json({ mensaje: "Requiere admin" });
+<<<<<<< HEAD
+=======
+
+>>>>>>> dw-proyecto/backend-Isaacv2
 };

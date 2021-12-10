@@ -57,7 +57,11 @@ export const singUp = async (req, res) => {
 
   console.log(newUser);
 
+<<<<<<< HEAD
   res.json({ token });
+=======
+  res.json({ token: token, user: savedUser });
+>>>>>>> dw-proyecto/backend-Isaacv2
 };
 
 export const singIn = async (req, res) => {
@@ -81,5 +85,9 @@ export const singIn = async (req, res) => {
     expiresIn: 86400,
   });
 
+<<<<<<< HEAD
   res.json({ token });
+=======
+  res.json({ token: token, user: userFound });
+>>>>>>> dw-proyecto/backend-Isaacv2
 };

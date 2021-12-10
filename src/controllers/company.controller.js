@@ -84,9 +84,15 @@ export const deleteCompanyById = async (req, res) => {
 
 //obtener categorias
 export const getCategories = async (req, res) => {
+<<<<<<< HEAD
   const companies =  await Company.find({},{category:1, _id:0})
     .then((result) => {
       res.status(200).json(result);
+=======
+  const companies = await Company.find()
+    .then((result) => {
+      res.status(200).json(companies);
+>>>>>>> dw-proyecto/backend-Isaacv2
       res.end();
     })
     .catch((error) => {

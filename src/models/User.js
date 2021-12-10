@@ -3,6 +3,7 @@ import bcrypt from "bcryptjs";
 
 const userSchema = new Schema(
   {
+<<<<<<< HEAD
     firstName: {
       type: String,
       required: true,
@@ -20,6 +21,13 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
+=======
+    firstName: String,
+    lastName: String,
+    DNI: String,
+    birthDate: Date,
+    phone: String,
+>>>>>>> dw-proyecto/backend-Isaacv2
     city: String,
     department: String,
     licensePlate: String,
@@ -33,7 +41,10 @@ const userSchema = new Schema(
     email: {
       type: String,
       unique: true,
+<<<<<<< HEAD
       required: true,
+=======
+>>>>>>> dw-proyecto/backend-Isaacv2
     },
     password: {
       type: String,
