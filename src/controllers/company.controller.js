@@ -84,9 +84,9 @@ export const deleteCompanyById = async (req, res) => {
 
 //obtener categorias
 export const getCategories = async (req, res) => {
-  const companies = await Company.find()
+  const companies =  await Company.find({},{category:1, _id:0})
     .then((result) => {
-      res.status(200).json(companies);
+      res.status(200).json(result);
       res.end();
     })
     .catch((error) => {

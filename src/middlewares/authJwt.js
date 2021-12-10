@@ -45,6 +45,7 @@ export const isDriver = async (req, res, next) => {
 
 export const isAdmin = async (req, res, next) => {
   // encontramos el usuario
+  
   const user = await User.findById(req.userId);
   //sacamos los roles del usuario
   const roles = await Role.find({ _id: { $in: user.roles } });

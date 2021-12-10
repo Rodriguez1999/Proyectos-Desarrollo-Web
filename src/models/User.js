@@ -3,11 +3,23 @@ import bcrypt from "bcryptjs";
 
 const userSchema = new Schema(
   {
-    firstName: String,
-    lastName: String,
+    firstName: {
+      type: String,
+      required: true,
+    },
+    lastName: {
+      type: String,
+      required: true,
+    },
     DNI: String,
-    birthDate: Date,
-    phone: String,
+    birthDate: {
+      type: Date,
+      required: true,
+    },
+    phone: {
+      type: String,
+      required: true,
+    },
     city: String,
     department: String,
     licensePlate: String,
@@ -21,6 +33,7 @@ const userSchema = new Schema(
     email: {
       type: String,
       unique: true,
+      required: true,
     },
     password: {
       type: String,
