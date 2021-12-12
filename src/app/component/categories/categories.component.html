@@ -1,8 +1,12 @@
 <!--Comienzo botones de categoria -->
 
-    <div class="col-xs-12 col-sm-12 categoria">
-      <button class="btn btn-outline-primary">
-        <img class="img-thumbnail" src="../assets/img/farmacia.jpg" alt="" />
-        <p class="h2">Farmacia</p>
-      </button>
-    </div>
+<div class="col-xs-12 col-sm-12 categoria">
+  <button
+    class="btn btn-outline-primary"
+    *ngFor="let categoria of categories"
+    (click)="listarCategoria(categoria['nombre'])"
+  >
+    <img class="img-thumbnail" [src]="categoria['imgCat']" alt="" />
+    <p class="h2">{{ categoria["nombre"] }}</p>
+  </button>
+</div>

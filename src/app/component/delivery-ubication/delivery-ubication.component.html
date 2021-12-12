@@ -10,43 +10,32 @@
           <form>
             <!-- 2 column grid layout with text inputs for the first and last names -->
             <div class="row mb-4">
-              <div class="col">
-                <div class="form-outline">
-                  <input type="text" id="form7Example1" class="form-control" />
-                  <label class="form-label" for="form7Example1">Nombre</label>
-                </div>
+              <div class="form-outline mb-4 col-12">
+                <input type="text" id="form7Example3" name="deliveryAddress" class="form-control" [(ngModel)]="order.deliveryAddress" />
+                <label class="form-label" for="form7Example3">Dirección</label>
               </div>
-              <div class="col">
-                <div class="form-outline">
-                  <input type="text" id="form7Example2" class="form-control" />
-                  <label class="form-label" for="form7Example2">Apellido</label>
-                </div>
+
+              <!-- Email input -->
+              <div class="form-outline mb-4 col-12">
+                <input type="email" id="form7Example5" name="email" class="form-control" [(ngModel)]="userinfo.email"/>
+                <label class="form-label" for="form7Example5">Email</label>
+              </div>
+
+              <!-- Number input -->
+              <div class="form-outline mb-4 col-12">
+                <input type="number" name="phone" id="form7Example6" class="form-control" [(ngModel)]="userinfo.phone"/>
+                <label class="form-label" for="form7Example6">Número de telefono</label>
+              </div>
+
+              <!-- Message input -->
+              <div class="form-outline mb-4 col-12">
+                <textarea class="form-control" name="observation" id="form7Example7" rows="4" [(ngModel)]="order['observation']"></textarea>
+                <label class="form-label" for="form7Example7">Información Adicional</label>
               </div>
             </div>
             <!-- Text input -->
-            <div class="form-outline mb-4">
-              <input type="text" id="form7Example3" class="form-control" />
-              <label class="form-label" for="form7Example3">Dirección</label>
-            </div>
 
-            <!-- Email input -->
-            <div class="form-outline mb-4">
-              <input type="email" id="form7Example5" class="form-control" />
-              <label class="form-label" for="form7Example5">Email</label>
-            </div>
-
-            <!-- Number input -->
-            <div class="form-outline mb-4">
-              <input type="number" id="form7Example6" class="form-control" />
-              <label class="form-label" for="form7Example6">Número de telefono</label>
-            </div>
-
-            <!-- Message input -->
-            <div class="form-outline mb-4">
-              <textarea class="form-control" id="form7Example7" rows="4"></textarea>
-              <label class="form-label" for="form7Example7">Información Adicional</label>
-            </div>
-            <button type="button" class="btn btn-danger btn-rounded btn-lg btn-block justify-content-center">Realizar Compra</button>
+            <button type="button" class="btn btn-danger btn-rounded btn-lg btn-block justify-content-center" (click)="printOrder()">Realizar Compra</button>
           </form>
         </div>
       </div>

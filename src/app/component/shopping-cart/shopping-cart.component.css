@@ -8,7 +8,10 @@ body {
 }
 
 .cart {
-  background: #fff
+  background: #fff;
+  max-width: 70vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .p-about {

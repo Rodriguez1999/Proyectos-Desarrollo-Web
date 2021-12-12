@@ -1,0 +1,122 @@
+<div class="background">
+  <div class="row">
+    <div id="formWrapper">
+      <div id="form">
+        <div class="logo">
+          <img
+            src="../../../assets/img/Logo (1).png"
+            alt=""
+            style="width: 50px"
+          />
+          <h4>Fastilery</h4>
+        </div>
+        <div class="form-item">
+          <form>
+            <input
+              placeholder="Nombre"
+              type="text"
+              class="form-style form"
+              required="true"
+              name="fistName"
+              [(ngModel)]= "firstName"
+            />
+
+            <input
+              placeholder="Apellido"
+              type="text"
+              class="form-style form"
+              name="lastName"
+              required
+              [(ngModel)]= "lastName"
+            />
+            <label for="birthdate">Fecha de Nacimiento</label>
+            <input
+              placeholder="Fecha de Nacimiento"
+              type="date"
+              name="birthDate"
+              class="form-style"
+              required
+
+              [(ngModel)]= "birthDate"
+            />
+
+            <input placeholder="DNI" type="text" class="form-style form" name="DNI"
+            [(ngModel)]= "DNI" />
+
+            <input placeholder="Telefono" type="text" class="form-style form" name="phone"
+            [(ngModel)]= "phone"/>
+
+            <input
+              placeholder="Nombre de Usuario" type="text"
+              type="text"
+              class="form-style"
+              autocomplete="off"
+              name="username"
+              [(ngModel)]= "username"
+            />
+
+            <input placeholder="Ciudad" type="text" class="form-style form"
+            name="city"
+            [(ngModel)]= "city" />
+
+            <input
+              placeholder="Departamento"
+              type="text"
+              class="form-style form"
+              name="departament"
+              [(ngModel)]= "department"
+            />
+
+            <input
+              placeholder="Direccion"
+              type="textarea"
+              name="address"
+              id="address"
+              class="form-style"
+              autocomplete="off"
+
+              [(ngModel)]= "address"
+            />
+
+            <input
+              placeholder="Correo electronico"
+              type="email"
+              name="email"
+              id="email"
+              class="form-style"
+              autocomplete="off"
+
+              [(ngModel)]= "email"
+            />
+            <input
+              placeholder="Contraseña"
+              type="password"
+              name="password"
+              id="password"
+              class="form-style"
+
+              [(ngModel)]= "password"
+            />
+            <input
+              placeholder="Confirme su contraseña"
+              type="password"
+              name="confirmPassword"
+              class="form-style"
+
+              [(ngModel)]= "confirmPassword"
+            />
+          </form>
+        </div>
+        <div class="form-item">
+          <p class="pull-left">
+            <a href="#" (click)="volverLogin();" ><small>Cancelar</small></a>
+          </p>
+
+          <input type="submit" class="login pull-right" value="REGISTRARSE"
+          (click)="registrarUsuario()" />
+          <div class="clear-fix"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

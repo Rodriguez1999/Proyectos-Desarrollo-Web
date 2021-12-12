@@ -1,35 +1,56 @@
-<app-header></app-header>
-
+<!-- Login de usuarios -->
+<app-login
+  (boolSignUp)="switchComponent($event)"
+  *ngIf="!loggedIn && !signUp"
+></app-login>
+<app-sign-up
+  (registerBack)="switchComponent($event)"
+  *ngIf="!loggedIn && signUp"
+></app-sign-up>
 <!--Cuerpo-->
 
-<div class="container-fluid" style="margin-top: 50px">
+<div *ngIf="loggedIn" class="container-fluid" style="margin-top: 50px">
   <div class="row jumbotron">
+    <app-header></app-header>
     <!--Display de categorias-->
 
-    <!-- <app-categories></app-categories> -->
+    <app-categories
+      *ngIf="!empresaCategoria"
+      (listadoEmpresas)="listadoEmpresas($event)"
+    ></app-categories>
 
     <!--Display de empresas-->
 
-    <!-- <app-companies></app-companies> -->
+    <app-companies
+      *ngIf="!empresa"
+      #companies
+      (idEmpresa)="perfilEmpresa($event)"
+    ></app-companies>
 
     <!--Display de perfil de empresas-->
+    <div *ngIf="loggedIn&&!addCarrito">
+      <app-company-profile
+        #profile
+        (identificador)="cargarProductos($event)"
+      ></app-company-profile>
 
-    <!-- <app-company-profile></app-company-profile> -->
+      <!-- (idProduct)="enviarId($event)" -->
+      <app-products #products (idProduct)="addProduct($event)" ></app-products>
+    </div>
 
     <!--Display de producto-->
-    <!-- <app-single-product></app-single-product> -->
 
-    <!-- Display de carrito de compras -->
-    <!--<app-shopping-cart></app-shopping-cart> -->
+    <app-single-product #displayProduct ></app-single-product>
 
-    <!--Display de proceso de pago-->
-    <!-- <app-cc-process></app-cc-process> -->
+    <!-- Display de carrito de compras --><!--
+    <app-shopping-cart></app-shopping-cart> -->
 
-    <!--Display de la ubicacion del delivery-->
-    <app-delivery-ubication></app-delivery-ubication>
+    <!--Display de proceso de pago--><!--
+    <app-cc-process></app-cc-process> -->
 
+    <!--Display de la ubicacion del delivery--><!--
+    <app-delivery-ubication></app-delivery-ubication> -->
 
+    <app-footer></app-footer>
   </div>
 </div>
-
-<app-footer></app-footer>

@@ -45,3 +45,7 @@
   outline: 0;
   box-shadow: 0 0 0 #f44336;
 }
+
+.btn{
+  display: inline;
+}

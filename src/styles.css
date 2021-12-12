@@ -1,6 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 .jumbotron{
   height: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 body {
   background-color: white;
@@ -116,9 +118,14 @@ footer {
 
 .categoria {
   margin-bottom: 5%;
+  display: inline-block;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .btn {
+  margin-bottom: 20px;
+  width: 100%;
   display: inline-flex;
   align-items: center;
 }

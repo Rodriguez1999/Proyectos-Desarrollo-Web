@@ -1,6 +1,7 @@
 .company{
   border: 0;
   background-color: #fff;
+  width: 85vw;
 }
  .img-fluid{
    max-height: 200px;

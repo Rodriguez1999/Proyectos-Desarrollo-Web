@@ -9,10 +9,27 @@
     <div class="container-fluid seleccion">
       <ul class="row justify-content-between list-unstyled list-inline">
         <li class="row rounded-circle">
-          <i class="fas fa-home fa-2x"> </i><br />
+          <a href="#" (click)="reloadHome()"><i class="fas fa-home fa-2x"> </i><br /></a>
         </li>
         <li class="row rounded-circle">
-          <i class="fas fa-shopping-cart fa-2x"> </i><br />
+          <ng-template #content let-c="close" let-d="dismiss">
+            <div class="modal-header">
+              <h4 class="modal-title" id="modal-basic-title">Carrito de Compras</h4>
+              <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <app-shopping-cart *ngIf="!cerrarShopCart" (PasarPago)="cargarPago($event)"></app-shopping-cart>
+              <app-cc-process *ngIf="cerrarShopCart&&!pago" (payment)="agregarDelivery($event)"></app-cc-process>
+              <app-delivery-ubication *ngIf="cerrarShopCart&&pago" ></app-delivery-ubication>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Cerrar Carrito de Compras</button>
+            </div>
+          </ng-template>
+
+          <a href="#" (click)="open(content)"><i class="fas fa-shopping-cart fa-2x"> </i><br /></a>
         </li>
         <li class="row rounded-circle logo-bar">
           <img class="rounded-circle" src="../assets/img/Logo (1).png" alt="" />
@@ -21,7 +38,10 @@
           <i class="fas fa-user-circle fa-2x"> </i><br />
         </li>
         <li class="row rounded-circle">
-          <i class="fas fa-cog fa-2x"> </i><br />
+          <a href="#" (click)="cerrarSesion()">
+            <i class="fas fa-sign-out-alt"></i><br />
+          </a>
+
         </li>
       </ul>
     </div>
