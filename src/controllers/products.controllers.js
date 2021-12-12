@@ -31,6 +31,15 @@ export const getProducts = async (req, res) => {
   res.json(products);
 };
 
+export const getProductByCompany = async (req, res) => {
+  try {
+    const products = await Product.find({companyID: req.params.companyID});
+    res.json(products);
+  } catch (error) {
+    res.status(401).json(error)
+  }
+};
+
 export const getProductById = async (req, res) => {
   //Obtener un producto enviando el Id como parametro en el Request
   const product = await Product.findById(req.params.productId);

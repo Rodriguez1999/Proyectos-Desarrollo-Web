@@ -5,6 +5,7 @@ import { authJwt } from "../middlewares";
 const router = Router();
 
 router.get("/", productsCtrl.getProducts);
+router.get("/products/:companyID", authJwt.verifyToken, productsCtrl.getProductByCompany)
 router.get("/:productId", productsCtrl.getProductById);
 router.put(
   "/:productId",

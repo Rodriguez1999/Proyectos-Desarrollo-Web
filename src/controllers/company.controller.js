@@ -70,7 +70,6 @@ export const updateCompanyById = async (req, res) => {
 
 //Eliminar empresas
 export const deleteCompanyById = async (req, res) => {
-  
   await Company.findByIdAndDelete(req.params.companyId)
     .then((result) => {
       res.status(204).json();
@@ -82,17 +81,46 @@ export const deleteCompanyById = async (req, res) => {
     });
 };
 
+//obtener empresas por categoria
+
+export const getCompaniesByName = async (req, res) => {
+  try {
+    const companies = await Company.find({ category: req.params.categoryName });
+    console.log(companies);
+    res.status(200).json({ companies });
+  } catch (error) {
+    res.status(401).json({ mensajeError: error });
+  }
+};
+
 //obtener categorias
 export const getCategories = async (req, res) => {
-<<<<<<< HEAD
-  const companies =  await Company.find({},{category:1, _id:0})
-    .then((result) => {
-      res.status(200).json(result);
-=======
+  const categories = [
+    {
+      nombre: "Restaurantes",
+      imgCat:
+        "https://consumer.healthday.com/media-library/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbWFnZSI6Imh0dHBzOi8vYXNzZXRzLnJibC5tcy8yNzc2MzkyOC9vcmlnaW4uanBnIiwiZXhwaXJlc19hdCI6MTY1NjY4ODM1Mn0.XRxhN87l67pVgr2y0ha6wpp6LVSYeQGw2B_MioZAoZM/image.jpg?width=1245&quality=85&coordinates=0%2C0%2C0%2C0&height=700",
+    },
+    {
+      nombre: "Farmacia",
+      imgCat: "../../../assets/img/farmacia 1.jpg",
+    },
+    {
+      nombre: "Ferreteria",
+      imgCat: "https://www.aecoc.es/wp-content/uploads/2021/08/1592312156839-296x197.jpg",
+    },
+    {
+      nombre: "Supermercado",
+      imgCat: "https://i.blogs.es/0baa91/39f95492-38ee-4f16-92e1-ba5161f4a958/1366_2000.jpeg",
+    },
+    {
+      nombre: "Ropa",
+      imgCat: "https://www.hola.com/imagenes/estar-bien/20180312121453/ropa-contamina-medio-ambiente/0-548-821/ropa-medioambiente-t.webp?filter=high",
+    }
+  ];
   const companies = await Company.find()
     .then((result) => {
-      res.status(200).json(companies);
->>>>>>> dw-proyecto/backend-Isaacv2
+      res.status(200).json(categories);
       res.end();
     })
     .catch((error) => {
