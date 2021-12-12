@@ -1,0 +1,92 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-6 left d-flex">
+      <div class="fondo">
+        <p class="h1 mt-12">Fastilery</p>
+        <p style="font-size: 32px; color: #fff">
+          Donde estes y cuando lo necesites.
+        </p>
+        <div class="service">
+          <div class="super"></div>
+          <img src="../../../assets/img/Delivery Service .png" alt="" />
+        </div>
+      </div>
+    </div>
+    <div class="col-6 right">
+      <div class="fondo2">
+        <div class="service2 container">
+          <img src="../../../assets/img/Logo 2.png" alt="" /><br /><br />
+          <div class="simple-login-container">
+            <div class="row">
+              <div class="col-md-12 form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  [(ngModel)]="sesion.email"
+                  name="email"
+                  placeholder="Nombre de usuario o correo electronico"
+                />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 form-group">
+                <input
+                  type="password"
+                  placeholder="Contraseña"
+                  [(ngModel)] = "sesion.password"
+                  name="password"
+                  class="form-control"
+                />
+              </div>
+            </div>
+            <div class="row ">
+              <div class="col-md-12 form-group">
+                <button
+                  type="submit"
+                  class="btn btn-block btn-login rounded"
+                  (click) = "iniciarSesion(exit, error)"
+                ><h4>Iniciar Sesión</h4></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #error let-modal>
+  <div class="modal-header modal-mapa">
+    <h4 class="modal-title text-center">Notificación</h4>
+    <button type="button" class="close text-light" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row align-items-center justify-content-center">
+      <i class="d-block text-danger fas fa-exclamation-circle fa-5x"></i>
+      <h5 class="text-center text-muted">Debes esperar hasta que un administrador te habilite...</h5>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-danger" (click)="modal.close('Close click')">Close</button>
+  </div>
+</ng-template>
+
+<ng-template #exit let-modal>
+  <div class="modal-header modal-mapa">
+    <h4 class="modal-title text-center">Notificación</h4>
+    <button type="button" class="close text-light" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row align-items-center justify-content-center">
+      <i class="d-block text-danger fas fa-exclamation-circle fa-5x"></i>
+      <h5 class="text-center text-muted">Las credenciales de incio de sesión estan erroneas.</h5>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-danger" (click)="modal.close('Close click')">Close</button>
+  </div>
+</ng-template>

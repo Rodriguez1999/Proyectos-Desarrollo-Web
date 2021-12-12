@@ -1,0 +1,67 @@
+<app-dashboard-sidebar></app-dashboard-sidebar>
+<div class="empresas">
+  <div class="empresas-name">
+    <p class="h2">Usuarios</p>
+  </div>
+  <ul class="list-group scroll">
+    <li class="list-group-item">
+      <div class="row">
+        <div class="col">
+          <h6>Nombre</h6>
+        </div>
+        <div class="col">
+          <h6>DNI</h6>
+        </div>
+        <div class="col">
+          <h6>No. de Telefono</h6>
+        </div>
+        <div class="col">
+          <h6>Correo</h6>
+        </div>
+        <div class="col">
+          <h6>Direccion</h6>
+        </div>
+        <div class="col">
+          <h6>Servicio</h6>
+        </div>
+        <div class="col" style="max-width: 5%">
+        </div>
+      </div>
+    </li>
+    <li class="list-group-item" *ngFor = "let user of usuarios">
+      <div class="row">
+        <div class="col">
+          <p>{{user.firstName}} {{user.lastName}}</p>
+        </div>
+        <div class="col">
+          <p>{{user.DNI}}</p>
+        </div>
+        <div class="col">
+          <p>{{user.phone}}</p>
+        </div>
+        <div class="col">
+          <p>{{user.email}}</p>
+        </div>
+        <div class="col">
+          <p>{{user.city}}, {{user.department}}</p>
+        </div>
+        <div class="col row justify-content-center align-item-center">
+          <button class="btn btn-success" *ngIf="user.status != 0; else menor" (click)="desactivar(user._id)">Activo</button>
+          <ng-template #menor>
+            <button class="btn btn-danger" (click)="activar(user._id)">Inactivo</button>
+          </ng-template>
+        </div>
+        <div class="col" style="max-width: 5%">
+          <div ngbDropdown class="d-inline-block">
+            <a id="dropdownBasic1" ngbDropdownToggle></a>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+              <button ngbDropdownItem (click)="eliminarUsuario(user._id)" ><i class="fas fa-trash-alt" ></i>&#9;Eliminar Usuario</button>
+              <button ngbDropdownItem><i class="fas fa-pencil-alt"></i>&#9;Editar informacion</button>
+              <button ngbDropdownItem><i class="fas fa-sync-alt"></i>&#9;actualizar Usuario</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

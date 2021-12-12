@@ -1,0 +1,35 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.empresas{
+    margin: 0;
+    display:block;
+    position: fixed;
+    top: 10%;
+    right: 5%;
+    width: 75%;
+    
+  
+  }
+
+  .scroll{
+    height: 600px;
+    overflow-y: scroll;
+  }
+  
+  .empresas .h2{
+    font-family: "Rowdies", cursive;
+    margin-bottom: 40px;
+  }
+  
+  .row h6{
+    text-align: center;
+    margin: 0;
+  }
+  
+  .row p {
+    text-align: center;
+    margin: 0;
+  }

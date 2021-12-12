@@ -1,0 +1,64 @@
+<app-dashboard-sidebar></app-dashboard-sidebar>
+<div class="empresas">
+  <div class="empresas-name">
+    <p class="h2">Productos</p>
+  </div>
+  <ul class="list-group scroll">
+    <li class="list-group-item">
+      <div class="row">
+        <div class="col">
+          <h6>Nombre</h6>
+        </div>
+        <div class="col">
+          <h6>Categoria</h6>
+        </div>
+        <div class="col">
+          <h6>Precio</h6>
+        </div>
+        <div class="col">
+          <h6>Fecha</h6>
+        </div>
+        <div class="col">
+          <h6>Imagen</h6>
+        </div>
+        <div class="col">
+          <h6>Servicio</h6>
+        </div>
+        <div class="col" style="max-width: 5%">
+        </div>
+      </div>
+    </li>
+    <li class="list-group-item" *ngFor = "let producto of productos">
+      <div class="row">
+        <div class="col">
+          <p>{{producto.name}}</p>
+        </div>
+        <div class="col">
+          <p>{{producto.category}}</p>
+        </div>
+        <div class="col">
+          <p>{{producto.price}}</p>
+        </div>
+        <div class="col">
+          <p>{{producto.updateAt}}</p>
+        </div>
+        <div class="col">
+          <img [src]="producto.imgURL" alt="" style="width: 100px; height: 60px;">
+        </div>
+        <div class="col row justify-content-center align-item-center">
+          <button class="btn btn-success">Disponible</button>
+        </div>
+        <div class="col" style="max-width: 5%">
+          <div ngbDropdown class="d-inline-block">
+            <a id="dropdownBasic1" ngbDropdownToggle></a>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+              <button ngbDropdownItem (click)="eliminarProducto(producto._id)" ><i class="fas fa-trash-alt" ></i>&#9;Eliminar Producto</button>
+              <button ngbDropdownItem><i class="fas fa-pencil-alt"></i>&#9;Editar informacion</button>
+              <button ngbDropdownItem><i class="fas fa-sync-alt"></i>&#9;actualizar Producto</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

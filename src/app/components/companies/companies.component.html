@@ -1,0 +1,64 @@
+<app-dashboard-sidebar></app-dashboard-sidebar>
+<div class="empresas">
+  <div class="empresas-name">
+    <p class="h2">Empresas</p>
+  </div>
+  <ul class="list-group scroll">
+    <li class="list-group-item">
+      <div class="row">
+        <div class="col">
+          <h6>Empresa</h6>
+        </div>
+        <div class="col">
+          <h6>Direccion</h6>
+        </div>
+        <div class="col">
+          <h6>No. de Telefono</h6>
+        </div>
+        <div class="col">
+          <h6>Correo</h6>
+        </div>
+        <div class="col">
+          <h6>Categoria</h6>
+        </div>
+        <div class="col">
+          <h6>Servicio</h6>
+        </div>
+        <div class="col" style="max-width: 5%">
+        </div>
+      </div>
+    </li>
+    <li class="list-group-item" *ngFor = "let company of companies">
+      <div class="row">
+        <div class="col">
+          <p>{{company.name}}</p>
+        </div>
+        <div class="col">
+          <p>{{company.address}}</p>
+        </div>
+        <div class="col">
+          <p>{{company.phone}}</p>
+        </div>
+        <div class="col">
+          <p>{{company.email}}</p>
+        </div>
+        <div class="col">
+          <p>{{company.category}}</p>
+        </div>
+        <div class="col">
+          <p>ACTIVO</p>
+        </div>
+        <div class="col" style="max-width: 5%">
+          <div ngbDropdown class="d-inline-block">
+            <a id="dropdownBasic1" ngbDropdownToggle></a>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+              <button ngbDropdownItem><i class="fas fa-users-cog"></i>&#9;Administrar Empresa</button>
+              <button ngbDropdownItem><i class="fas fa-pencil-alt"></i>&#9;Editar informacion</button>
+              <button ngbDropdownItem><i class="fas fa-pencil-alt"></i>&#9;Eliminar Empresa</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
