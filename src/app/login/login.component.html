@@ -4,23 +4,59 @@
       <h1 class="h3 mb-3 font-weight-normal">Iniciar Sesión</h1>
       <div class="pb-3">
             <label for="inputEmail" class="sr-only">Correo Electronico</label>
-            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+            <input type="email" name="mail" id="inputEmail" [(ngModel)]="sesion.email" class="form-control" placeholder="Email address" required="" autofocus="">
       </div>
       <div class="pb-3">
           <label for="inputPassword" class="sr-only">Contraseña</label>
-          <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+          <input type="password" name="pass" id="inputPassword" [(ngModel)]="sesion.password" class="form-control" placeholder="Password" required="">
       </div>
       
-      <div class="checkbox mb-3">
+      <div class="checkbox mb-4">
         <label>
           <input type="checkbox" value="remember-me"> Recordar Usuario
         </label><br>
-        <a class="btn btn-secondary" href="#">
+        <a class="text-light" href="#">
          ¿Olvidaste tu contraseña?
         </a>
       </div>
-      <button class="btn btn-lg btn-buscar btn-block" type="submit"><a class="text-light" href="http://localhost:4200/pedidosDisponibles">Sign in</a></button>
-      <button class="btn btn-lg btn-info btn-block" type="submit"><a class="text-light" href="http://localhost:4200/crearMotorista">Sign up</a></button>
-      <p class="mt-5 mb-3">© Fastilery Inc. 2021</p>
+      <button class="btn btn-lg btn-buscar btn-block text-light" type="submit" (click)="iniciarSesion(exit, error)">Sign in</button>
+      <a class="text-light" href="http://localhost:4200/crearMotorista">¿Aun no tienes una cuenta?</a>
+      <p class="mt-5">© Fastilery Inc. 2021</p>
     </form>
 </div>
+
+<ng-template #exit let-modal>
+  <div class="modal-header modal-mapa">
+    <h4 class="modal-title text-center">Notificación</h4>
+    <button type="button" class="close text-light" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row align-items-center justify-content-center">
+      <i class="d-block text-danger fas fa-exclamation-circle fa-5x"></i>
+      <h5 class="text-center text-muted">Las credenciales de incio de sesión estan erroneas.</h5>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-danger" (click)="modal.close('Close click')">Close</button>
+  </div>
+</ng-template>
+
+<ng-template #error let-modal>
+  <div class="modal-header modal-mapa">
+    <h4 class="modal-title text-center">Notificación</h4>
+    <button type="button" class="close text-light" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row align-items-center justify-content-center">
+      <i class="d-block text-danger fas fa-exclamation-circle fa-5x"></i>
+      <h5 class="text-center text-muted">Debes esperar hasta que un administrador te habilite...</h5>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-danger" (click)="modal.close('Close click')">Close</button>
+  </div>
+</ng-template>

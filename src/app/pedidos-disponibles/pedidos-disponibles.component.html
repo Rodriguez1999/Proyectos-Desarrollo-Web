@@ -1,64 +1,59 @@
 <app-header></app-header>
+
 <div class="container limites">
     <h3 class="text-muted text-center">Pedidos Disponibles</h3>
     <div class="row justify-content-center">
         <!--Targeta de pedidos disponibles-->
-        <div class="card mt-2 m-1" style="width: 18rem;">
-            <img class="card-img-top" src="../../assets/img/card.jpg" alt="Card image cap">
+        <div *ngFor="let orden of ordenes" class="card mt-2 m-1" style="width: 18rem;">
+            <div *ngFor = "let product of orden.products">
+              <img class="card-img-top" [src]="product.imgURL" alt="Card image cap">
+            </div>
             <div class="card-body">
-              <h5 class="card-title">Burger King</h5>
-              <h6 class="card-subtitle text-muted">Descripcion pedido</h6>
-              <p class="card-text">Paquete familiar, econocombo King Max para 4 personas.</p><hr>
-              <p class="card-text"><b>Entrega:</b> Col. palmira primera calle...</p>
+              <h6 class="card-subtitle text-muted"><b>Productos</b></h6>
+              <div class="pt-3 card-product"  *ngFor="let product of orden.products">
+                <h6 class="card-subtitle text-muted"><b>Detalles: </b>{{product.product}}, {{product.description}}, cantidad: {{product.quantity}}</h6>
+                <h6 class="card-subtitle text-muted pt-2"><b>Origen:</b> {{product.companyName}}, {{product.address}}</h6>
+              </div>
+              <hr>
+              <p class="card-text"><b>Entrega:</b> {{orden.deliveryAddress}}</p>
               <div class="row justify-content-between">
-                    <a href="#" class="btn btn-success">Tomar</a>
-                    <a href="#" class="btn btn-danger">Rechazar</a>
-                    <a href="#" class="btn btn-secondary" (click)="openBackDropCustomClass(content)">Mapa</a>
+                    <button class="btn btn-success" (click)="tomarOrden(orden._id); openBackDropCustomClass(exit)">Tomar</button>
+                    <button class="btn btn-danger">Rechazar</button>
+                    <button class="btn btn-secondary" (click)="openBackDropCustomClass(content); cargarMapa(orden.lat, orden.long)">Mapa</button>
               </div>
             </div>
         </div>
         <!--Targeta de pedidos disponibles-->
-
-        <div class="card mt-2 m-1" style="width: 18rem;">
-            <img class="card-img-top" src="../../assets/img/card.jpg" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Burger King</h5>
-              <h6 class="card-subtitle text-muted">Descripcion pedido</h6>
-              <p class="card-text">Paquete familiar, econocombo King Max para 4 personas.</p><hr>
-              <p class="card-text"><b>Entrega:</b> Col. palmira primera calle...</p>
-              <div class="row justify-content-between">
-                    <a href="#" class="btn btn-success">Tomar</a>
-                    <a href="#" class="btn btn-danger">Rechazar</a>
-                    <a href="#" class="btn btn-secondary" (click)="openBackDropCustomClass(content)">Mapa</a>
-              </div>
-            </div>
-        </div>
-        <div class="card mt-2 m-1" style="width: 18rem;">
-            <img class="card-img-top" src="../../assets/img/card.jpg" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Burger King</h5>
-              <h6 class="card-subtitle text-muted">Descripcion pedido</h6>
-              <p class="card-text">Paquete familiar, econocombo King Max para 4 personas.</p><hr>
-              <p class="card-text"><b>Entrega:</b> Col. palmira primera calle...</p>
-              <div class="row justify-content-between">
-                    <a href="#" class="btn btn-success">Tomar</a>
-                    <a href="#" class="btn btn-danger">Rechazar</a>
-                    <a href="#" class="btn btn-secondary" (click)="openBackDropCustomClass(content)">Mapa</a>
-              </div>
-            </div>
-        </div>
     </div>
 </div>
 
 <ng-template #content let-modal>
-  <div class="modal-header">
-    <h4 class="modal-title modal-mapa">Sitio de Entrega</h4>
+  <div class="modal-header modal-mapa">
+    <h4 class="modal-title ">Sitio de Entrega</h4>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
   <div class="modal-body">
     <p><app-mapa></app-mapa></p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-danger" (click)="modal.close('Close click')">Close</button>
+  </div>
+</ng-template>
+
+<ng-template #exit let-modal>
+  <div class="modal-header modal-mapa">
+    <h4 class="modal-title ">Notificacion</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row align-items-center justify-content-center">
+      <i class="d-block text-success fas fa-check-circle fa-5x"></i>
+      <h5 class="text-center text-muted">Orden tomada exitosamente</h5>
+    </div>
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-danger" (click)="modal.close('Close click')">Close</button>

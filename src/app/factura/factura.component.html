@@ -1,0 +1,67 @@
+<div class="container">
+    <div class="factura p-4" *ngFor = "let factura of facturas">
+        <div class="text-center">
+            <h3><b>Fastilery Inc.</b></h3>
+            <h5>Factura de recibido</h5>
+            <h6>#{{factura._id}}</h6>
+            <h6>{{factura.date}}</h6>
+        </div>
+        <hr>
+        <div>
+            <h5><b>Datos del usuario</b></h5>
+            <h6><b>Nombre: </b> {{factura.user}}</h6>
+            <p><b>Dirección: </b> {{factura.deliveryAddress}}</p>
+        </div>
+        <hr>
+        <div>
+            <div class="d-flex justify-content-between align-items-center">
+                <h4><b>Datos de pago</b></h4>
+                <h6>HNL</h6>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+                <h6>Importe </h6>
+                <h6>{{factura.purchasePrice}}</h6>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+                <h6>Comisiones </h6>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+                <h6>&nbsp;&nbsp;&nbsp; Administración </h6>
+                <h6>{{factura.adminCommission}}</h6>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+                <h6>&nbsp;&nbsp;&nbsp; Motorista </h6>
+                <h6>{{factura.driverCommission}}</h6>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+                <h6>Total gravado (15%) </h6>
+                <h6>{{factura.ISV}}</h6>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+                <h6>Rebajas y descuentos </h6>
+                <h6>{{factura.sales}}</h6>
+            </div>
+            <hr>
+            <div class="d-flex justify-content-between align-items-center">
+                <h6>Forma de pago </h6>
+                <h6>Efectivo</h6>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+                <h6>Total pagado </h6>
+                <h6>{{factura.total}}</h6>
+            </div>
+            <hr>
+            <div class="text-center p-2">
+                <h6><b>*** La factura es un derecho exijala ***</b></h6>
+            </div>
+            <div class=" text-center p-2">
+                <h6>Realizar tus compras en comercios atraves de Fastilery con las mejores tarifas de envio.</h6>
+                <a href="https://www.google.com">www.fastilery.com.hn</a>
+            </div>
+
+            <div class="text-center pt-5">
+                <h6>Valido sin firma ni sello del emisor.</h6>
+            </div>
+        </div>
+    </div>
+</div>

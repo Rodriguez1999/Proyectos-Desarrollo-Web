@@ -1,40 +1,45 @@
 <app-header></app-header>
 <div class="limites" id="accordion">
     <h3 class="text-muted text-center">Pedidos en Progreso</h3>
-    <div class="card">
-      <div class="card-header justify-content-between align-items-center p-3" id="headingOne">
+    <div class="card" *ngFor="let orden of ordenes">
+      <div class="card-header justify-content-between align-items-center p-3" [id]="orden._id">
         <span>
             <h5 class="mb-0">
-                <b>Pedido N°</b>: 199917070319
+                <b>Pedido N°</b>: {{orden._id}}
             </h5>
         </span><br>
         <span>
             <h6 class="mb-0">
-                <b>Usuario</b>: Nicolas Perez
+                <b>Usuario</b>: {{orden.name}}
             </h6>
         </span><br>
-        <span>
+        <span *ngFor="let product of orden.products">
             <h6 class="mb-0">
-                <b>Empresa</b>: Burger King
+                <b>Empresa</b>: {{product.companyName}}
             </h6>
+            <span class="text-muted">{{product.address}}</span>
         </span>
         <hr>
-        <h6 class="mb-0 text-muted text-center">
-           <b>Progreso</b> 
-        </h6>
+        <div class="row align-items-center justify-content-between">
+          <h6 class="mb-0 text-muted m-auto" ><b>Progreso:</b> {{orden.statusDetail}}</h6>
+          <button class="btn btn-link m-auto" (click)="actualizarEstadoModal(progreso, orden._id, orden.status, orden.statusDetail)"><i class="fas fa-sync-alt"></i> Actualizar</button>
+        </div>
+        
         <div class="p-2">
-            <p><ngb-progressbar type="success" [value]="50" [striped]="true" [animated]="true"><i>50%</i></ngb-progressbar></p>
+            <p *ngIf="orden.status > 75; else medio"><ngb-progressbar type="success" [value]= "orden.status" [striped]="true" [animated]="true"><i>{{orden.status}}%</i></ngb-progressbar></p>
+            <ng-template #medio><p *ngIf="orden.status > 50; else menor"><ngb-progressbar type="warning" [value]= "orden.status" [striped]="true" [animated]="true"><i>{{orden.status}}%</i></ngb-progressbar></p></ng-template>
+            <ng-template #menor><p><ngb-progressbar type="danger" [value]= "orden.status" [striped]="true" [animated]="true"><i>{{orden.status}}%</i></ngb-progressbar></p></ng-template>
         </div>
         <div class="row justify-content-between p-2">
             <span>
-                <button class="btn btn-info" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Detalles</button>
-                <button class="btn btn-secondary ml-2" (click)="openBackDropCustomClass(content)">Ir al mapa</button>
+                <button class="btn btn-info" data-toggle="collapse" [attr.data-target]="'#mostrar'+orden.item" aria-expanded="true" [attr.aria-controls]="'mostrar'+orden.item">Detalles</button>
+                <button class="btn btn-secondary ml-2" (click)="openBackDropCustomClass(content); cargarMapa(orden.lat, orden.long)">Ir al mapa</button>
             </span>
-            <button class="btn btn-danger">Entregado</button> 
+            <button class="btn btn-danger" (click)="terminarEntrega(orden._id, fin)">Entregado</button> 
         </div> 
       </div>
   
-      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+      <div [id]="'mostrar'+orden.item" class="collapse down" [attr.aria-labelledby]="orden._id" data-parent="#accordion">
         <div class="card-body">
             <table class="table table-striped">
                 <thead>
@@ -42,27 +47,30 @@
                 <tbody>
                   <tr>
                     <th scope="row">Usuario</th>
-                    <td>Nicolas Perez</td>
+                    <td>{{orden.name}}</td>
                   </tr>
                   <tr>
                     <th scope="row">Telefono</th>
-                    <td>+504 9805-8713</td>
+                    <td>{{orden.phone}}</td>
                   </tr>
                   <tr>
                     <th scope="row">Direccion</th>
-                    <td>Residencial Centro America #2, casa 276 frente a pulperia La fortuna</td>
+                    <td>{{orden.deliveryAddress}}</td>
                   </tr>
-                  <tr>
-                    <th scope="row">Pedido</th>
-                    <td>Econocombo King Familiar</td>
+                  <tr *ngFor = "let product of orden.products">
+                    <th scope="row">Producto:</th>
+                    <td>{{product.product}}, cantida: {{product.quantity}}<br><span class="text-muted">{{product.description}}</span></td>
                   </tr>
                   <tr>
                     <th scope="row">Precio</th>
-                    <td>HNL 425.00</td>
+                    <td>HNL {{orden.price}}</td>
                   </tr>
                   <tr>
-                    <th scope="row">Estado</th>
-                    <td class="text-success">Pagado</td>
+                    <th scope="row">Factura</th>
+                    <td *ngIf="orden.payment; else next" class="text-success">Pagado <button class="btn btn-link" (click)="openBackDropCustomClass(factura)" ><i class="fas fa-print"></i></button></td>
+                    <ng-template #next>
+                      <td class="text-danger">Pendiente</td>
+                    </ng-template>
                   </tr>
                 </tbody>
               </table>
@@ -70,76 +78,7 @@
       </div>
     </div>
 
-    <div class="card">
-        <div class="card-header justify-content-between align-items-center p-3" id="headingTwo">
-            <span>
-                <h5 class="mb-0">
-                    <b>Pedido N°</b>: 199917070319
-                </h5>
-            </span><br>
-          <span>
-              <h6 class="mb-0">
-                  <b>Usuario</b>: Nicolas Perez
-              </h6>
-          </span><br>
-          <span>
-              <h6 class="mb-0">
-                  <b>Empresa</b>: Burger King
-              </h6>
-          </span>
-          <hr>
-          <h6 class="mb-0 text-muted text-center">
-             <b>Progreso</b> 
-          </h6>
-          <div class="p-2">
-              <p><ngb-progressbar type="success" [value]="75" [striped]="true" [animated]="true"><i>75%</i></ngb-progressbar></p>
-          </div>
-          <div class="row justify-content-between p-2">
-              <span>
-                  <button class="btn btn-info" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">Detalles</button>
-                  <button class="btn btn-secondary ml-2" (click)="openBackDropCustomClass(content)">Ir al mapa</button>
-              </span>
-              <button class="btn btn-danger">Entregado</button> 
-          </div> 
-        </div>
-    
-        <div id="collapseTwo" class="collapse down" aria-labelledby="headingTwo" data-parent="#accordion">
-          <div class="card-body">
-              <table class="table table-striped">
-                  <thead>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row">Usuario</th>
-                      <td>Nicolas Perez</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Telefono</th>
-                      <td>+504 9805-8713</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Direccion</th>
-                      <td>Residencial Centro America #2, casa 276 frente a pulperia La fortuna</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Pedido</th>
-                      <td>Econocombo King Familiar</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Precio</th>
-                      <td>HNL 425.00</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Estado</th>
-                      <td class="text-danger">Pendiente de pago</td>
-                    </tr>
-                  </tbody>
-                </table>
-          </div>
-        </div>
-      </div>
-  </div>
-
+  
   <ng-template #content let-modal>
     <div class="modal-header modal-mapa">
       <h4 class="modal-title text-center">Sitio de Entrega</h4>
@@ -149,6 +88,86 @@
     </div>
     <div class="modal-body">
       <p><app-mapa></app-mapa></p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-danger" (click)="modal.close('Close click')">Close</button>
+    </div>
+  </ng-template>
+
+  <ng-template #exit let-modal>
+    <div class="modal-header modal-mapa">
+      <h4 class="modal-title text-center">Notificación de Entrega</h4>
+      <button type="button" class="close text-light" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="row align-items-center justify-content-center">
+        <i class="d-block text-danger fas fa-exclamation-circle fa-5x"></i>
+        <h5 class="text-center text-muted">No puedes retroceder en el proceso de las ordenes</h5>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-danger" (click)="modal.close('Close click')">Close</button>
+    </div>
+  </ng-template>
+
+  <ng-template #factura let-modal>
+    <div class="modal-header modal-mapa">
+      <h4 class="modal-title text-center">Factura del pedido</h4>
+      <button type="button" class="close text-light" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="container">
+        <div class="row factura">
+          <app-factura></app-factura>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-danger" (click)="modal.close('Close click')">Close</button>
+      <button class="btn btn-success">Descargar</button>
+    </div>
+  </ng-template>
+
+  <ng-template #progreso let-modal>
+    <div class="modal-header modal-mapa">
+      <h4 class="modal-title text-center">Actualizar progreso</h4>
+      <button type="button" class="close text-light" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="input-group">
+        <h5 class="text-muted">Recuerda mantener un control en el estado de tus entregas, esto ayudará a los usuarios.</h5>
+        <h6 class="text-danger pb-4"><i class="fas fa-exclamation-triangle"></i> Es obligatorio realizar el control de seguimiento el incumplimiento puede causar tu suspención.</h6>
+        <select [(ngModel)]="ordenActual.statusDetails" class="custom-select" id="inputGroupSelect04">
+          <option [ngValue]="item" *ngFor="let item of opciones">{{item}}</option>
+        </select>
+        <div class="input-group-append">
+          <button class="btn btn-outline-success" type="button" (click)="actualizarEstadoOrden(exit); modal.dismiss('Cross click')">Actualizar</button>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-danger" (click)="modal.close('Close click')">Close</button>
+    </div>
+  </ng-template>
+
+  <ng-template #fin let-modal>
+    <div class="modal-header modal-mapa">
+      <h4 class="modal-title ">Notificacion</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="row align-items-center justify-content-center">
+        <i class="d-block text-success fas fa-check-circle fa-5x"></i>
+        <h5 class="text-center text-muted">Orden Entrega y registrada exitosamente</h5>
+      </div>
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-danger" (click)="modal.close('Close click')">Close</button>

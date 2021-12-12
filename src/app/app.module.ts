@@ -3,8 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { CrearMotoristaComponent } from './crear-motorista/crear-motorista.component';
@@ -14,6 +16,9 @@ import { PerfilComponent } from './perfil/perfil.component';
 import { MapaComponent } from './mapa/mapa.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { InformesComponent } from './informes/informes.component';
+import { FacturaComponent } from './factura/factura.component';
+import { ActualizarMotoristaComponent } from './actualizar-motorista/actualizar-motorista.component';
 
 @NgModule({
   declarations: [
@@ -27,12 +32,17 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
     PerfilComponent,
     MapaComponent,
     InicioComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    InformesComponent,
+    FacturaComponent,
+    ActualizarMotoristaComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

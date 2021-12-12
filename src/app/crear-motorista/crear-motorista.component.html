@@ -1,66 +1,102 @@
 <app-header></app-header>
-<form class="p-4 cont-pagina">
-    <div class="form-row">
-      <div class="form-group col-md-6">
-        <label for="inputName">Nombre</label>
-        <input type="text" class="form-control" id="inputEmail4" placeholder="Nombre">
+
+<div class="card cont-pagina">
+  <div class="card-header text-center">
+    <h4 class="card-title text-muted">Crear Motorista</h4>
+  </div>
+  <div class="card-body text-muted">
+    <form action="" class="pl-1 pr-1" method="">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputName"><i class="fas fa-user"></i> Nombre</label>
+          <input name="nombre" [(ngModel)]="user.firstName" type="text" class="form-control" id="inputEmail4" placeholder="Nombre">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputApellido"><i class="fas fa-user"></i> Apellido</label>
+          <input name="apellido" [(ngModel)]="user.lastName" type="text" class="form-control" id="inputApellido" placeholder="Apellido">
+        </div>
       </div>
-      <div class="form-group col-md-6">
-        <label for="inputApellido">Apellido</label>
-        <input type="text" class="form-control" id="inputApellido" placeholder="Apellido">
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="inputId"><i class="fas fa-address-card"></i> Número DNI</label>
+          <input name="DNI" [(ngModel)]="user.DNI" type="text" class="form-control" id="inputId" placeholder="Numero de Identificación Nacional">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="inputFechaNacimiento"><i class="fas fa-calendar"></i> fechaNacimiento</label>
+          <input name="fechaNacimiento" [(ngModel)]="user.birthDate" type="date" class="form-control form-date" id="inputFechaNacimiento" placeholder="Fecha de Nacimiento">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="inputTelefono"><i class="fas fa-phone"></i> Telefono</label>
+          <input name="telefono" [(ngModel)]="user.phone" type="text" class="form-control" id="inputTelefono" placeholder="Número Telefonico">
+        </div>
       </div>
-    </div>
-    <div class="form-row">
-      <div class="form-group col-md-6">
-        <label for="inputId">Número DNI</label>
-        <input type="text" class="form-control" id="inputId" placeholder="Numero de Identificación Nacional">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputEmail1"><i class="fas fa-envelope"></i> Correo</label>
+          <input name="correo" [(ngModel)]="user.email" type="email" class="form-control" id="inputEmail4" placeholder="Email">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputPassword4"><i class="fas fa-unlock-alt"></i> Contraseña</label>
+          <input name="contrasena" [(ngModel)]="user.password" type="password" class="form-control" id="inputPassword4" placeholder="Password">
+        </div>
       </div>
-      <div class="form-group col-md-6">
-        <label for="inputTelefono">Telefono</label>
-        <input type="text" class="form-control" id="inputTelefono" placeholder="Número Telefonico">
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="inputCity"><i class="fas fa-map-marker-alt"></i> Ciudad</label>
+          <input name="ciudad" [(ngModel)]="user.city" type="text" class="form-control" id="inputCity">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="inputState"><i class="fas fa-map-marker-alt"></i> Departamento</label>
+          <select name="departamento" [(ngModel)]="user.department" id="inputState" class="form-control form-select">
+            <option selected>Choose...</option>
+            <option value="Francisco Morazán">Francisco Morazán</option>
+            <option value="San Pedro Sula">San Pedro Sula</option>
+            <option value="Valle">Valle</option>
+            <option value="Comayagua">Comayagua</option>
+          </select>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="inputPlaca"><i class="fas fa-motorcycle"></i> Placa</label>
+          <input name="placa" [(ngModel)]="user.licensePlate" type="text" class="form-control" id="inputPlaca" placeholder="Placa del Automotor">
+        </div>
       </div>
-    </div>
-    <div class="form-row">
-      <div class="form-group col-md-6">
-        <label for="inputEmail1">Correo</label>
-        <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+      <div class="form-group">
+        <label for="inputAddress"><i class="fas fa-directions"></i> Dirección</label>
+        <textarea name="direccion" [(ngModel)]="user.address" type="text" class="form-control" id="inputAddress" placeholder="Colonia, barrio o caserio."></textarea>
       </div>
-      <div class="form-group col-md-6">
-        <label for="inputPassword4">Contraseña</label>
-        <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="inputAddress">Dirección</label>
-      <input type="text" class="form-control" id="inputAddress" placeholder="Colonia, barrio o caserio.">
-    </div>
-    <div class="form-row">
-      <div class="form-group col-md-6">
-        <label for="inputCity">Ciudad</label>
-        <input type="text" class="form-control" id="inputCity">
-      </div>
-      <div class="form-group col-md-4">
-        <label for="inputState">Departamento</label>
-        <select id="inputState" class="form-control">
-          <option selected>Choose...</option>
-          <option>Francisco Morazán</option>
-          <option>San Pedro Sula</option>
-          <option>Valle</option>
-          <option>Comayagua</option>
-        </select>
-      </div>
-      <div class="form-group col-md-2">
-        <label for="inputPlaca">Placa</label>
-        <input type="text" class="form-control" id="inputPlaca" placeholder="Placa del Automotor">
-      </div>
-    </div>
-    <div class="form-group">
+    </form>
+  </div>
+  <div class="card-footer row p-4 align-items-center justify-content-center">
+    <div class="form-group text-muted">
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="gridCheck">
+        <input name="" class="form-check-input" type="checkbox" id="gridCheck">
         <label class="form-check-label" for="gridCheck">
-          Acepto terminos y condiciones de uso.
+          Acepto terminos y condiciones de uso
         </label>
       </div>
     </div>
-    <button type="submit" class="btn btn-secondary">Registrar</button>
-  </form>
+    <div class="justify-content-end align-items-center ml-auto">
+      <button type="submit" class="btn btn-primary p-2">Iniciar sesión</button>
+      <button type="submit" (click)="guardarMotorista()" class="btn btn-success p-2" (click)="openBackDropCustomClass(exit)">Registrar</button>
+    </div>
+    
+  </div>
+</div>
+
+<ng-template #exit let-modal>
+  <div class="modal-header modal-mapa">
+    <h4 class="modal-title ">Notificación</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click'); inicio()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row align-items-center justify-content-center">
+      <i class="d-block text-success fas fa-check-circle fa-5x"></i>
+      <h5 class="text-center text-muted">Bienvenido, tu solicitud de motorista será revisada proximamente por un administrador.</h5>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-danger" (click)="modal.close('Close click'); inicio()">Close</button>
+  </div>
+</ng-template>

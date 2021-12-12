@@ -1,0 +1,85 @@
+<app-header></app-header>
+
+<div class="card cont-pagina">
+  <div class="card-header text-center">
+    <h4 class="card-title text-muted">Actualizar información</h4>
+  </div>
+  <div class="card-body text-muted">
+    <form action="" class="pl-1 pr-1" method="">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputName"><i class="fas fa-user"></i> Nombre</label>
+          <input name="nombre" [(ngModel)]="motorista.firstName" type="text" class="form-control" id="inputEmail4" placeholder="Nombre" required aria-required="Campo Obligatorio">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputApellido"><i class="fas fa-user"></i> Apellido</label>
+          <input name="apellido" [(ngModel)]="motorista.lastName" type="text" class="form-control" id="inputApellido" placeholder="Apellido">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputTelefono"><i class="fas fa-phone"></i> Telefono</label>
+          <input name="telefono" [(ngModel)]="motorista.phone" type="text" class="form-control" id="inputTelefono" placeholder="Número Telefonico">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="inputCity"><i class="fas fa-map-marker-alt"></i> Ciudad</label>
+          <input name="ciudad" [(ngModel)]="motorista.city" type="text" class="form-control" id="inputCity">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="inputState"><i class="fas fa-map-marker-alt"></i> Departamento</label>
+          <select name="departamento" [(ngModel)]="motorista.department" id="inputState" class="form-control form-select">
+            <option selected>Choose...</option>
+            <option value="Francisco Morazán">Francisco Morazán</option>
+            <option value="San Pedro Sula">San Pedro Sula</option>
+            <option value="Valle">Valle</option>
+            <option value="Comayagua">Comayagua</option>
+          </select>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="inputPlaca"><i class="fas fa-motorcycle"></i> Placa</label>
+          <input name="placa" [(ngModel)]="motorista.licensePlate" type="text" class="form-control" id="inputPlaca" placeholder="Placa del Automotor">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputAddress"><i class="fas fa-directions"></i> Dirección</label>
+        <textarea name="direccion" [(ngModel)]="motorista.address" type="text" class="form-control" id="inputAddress" placeholder="Colonia, barrio o caserio."></textarea>
+      </div>
+    </form>
+  </div>
+  <div class="card-footer align-items-center justify-content-center">
+    <div class="form-group text-muted">
+      <div class="form-check">
+        <input name="" class="form-check-input" type="checkbox" id="gridCheck">
+        <label class="form-check-label" for="gridCheck">
+          Acepto terminos y condiciones de uso
+        </label>
+      </div>
+    </div>
+    <div class="row justify-content-end align-items-center ml-auto p-2">
+      <button type="submit" class="btn btn-danger p-2" (click)="inicio()">Cancelar</button>
+      <button type="submit" (click)="actualizarMotorista(exit); " class="btn btn-success p-2">Actualizar</button>
+    </div>
+    
+  </div>
+</div>
+
+<ng-template #exit let-modal>
+  <div class="modal-header modal-mapa">
+    <h4 class="modal-title ">Notificación</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click'); inicio()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row align-items-center justify-content-center">
+      <i class="d-block text-success fas fa-check-circle fa-5x"></i>
+      <h5 class="text-center text-muted">Tu información ha sido actualiza.</h5>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-danger" (click)="modal.close('Close click'); inicio()">Close</button>
+  </div>
+</ng-template>
+<app-footer></app-footer>

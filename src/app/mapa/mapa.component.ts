@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import * as Mapboxgl from 'mapbox-gl';
+import { OrdenesService } from '../services/ordenes.service';
 
 @Component({
   selector: 'app-mapa',
@@ -9,20 +10,22 @@ import * as Mapboxgl from 'mapbox-gl';
 })
 export class MapaComponent implements OnInit {
   mapa!: Mapboxgl.Map;
+  coordenadas:any={};
 
-  constructor() { }
+  constructor(private ordenServicio:OrdenesService) { }
 
   ngOnInit() {
+    this.coordenadas = this.ordenServicio.dibujarMapa();
     (Mapboxgl as any).accessToken = environment.mapboxKey;
 
     this.mapa = new Mapboxgl.Map({
     container: 'mapa', // container ID
     style: 'mapbox://styles/mapbox/streets-v11', // style URL
-    center: [-87.2324035, 14.1070368], // starting position
-    zoom: 16 // starting zoom
+    center: [this.coordenadas.long, this.coordenadas.lat], // starting position
+    zoom: 14 // starting zoom
     });
 
-    this.cargarMarcador(-87.2324035, 14.1070368);
+    this.cargarMarcador(this.coordenadas.long, this.coordenadas.lat);
   }
 
   cargarMarcador(lng: number, lat: number){

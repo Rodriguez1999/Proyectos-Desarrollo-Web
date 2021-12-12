@@ -1,0 +1,124 @@
+<app-header></app-header>
+<div class="limites text-center">
+  <h4 class="text-muted p-2 text-center"><b>Solicitar informes</b></h4>
+  <div class="">
+    <div class="col-ms-6" *ngFor = "let orden of ordenes">
+      <div class="card mb-2">
+        <div class="card-header">
+          <b>Codigo:</b><br> {{orden._id}}
+        </div>
+        <div class="card-body">
+          <h5 class="card-title"><b>Usuario: </b> {{orden.name}}</h5>
+          <p class="card-text"><b>Fecha de entrega</b><br> {{orden.date}}</p>
+          <div class="row justify-content-center d-flex">
+            <button class="btn btn-link">
+              <i class="fas fa-info-circle fa-2x" (click)="openBackDropCustomClass(content); verInfoOrden(orden._id)"></i>
+            </button>
+            <button class="btn btn-link" (click)="openBackDropCustomClass(factura); verFactura(orden._id)" >
+              <i class="fas fa-print fa-2x"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>
+
+<ng-template #content let-modal>
+  <div class="modal-header modal-mapa">
+    <h4 class="modal-title text-center">Solicitud de informe de entrega</h4>
+    <button type="button" class="close text-light" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <label for="exampleInputText1">Titulo Solicitud</label>
+        <input type="text" class="form-control" id="exampleInputText1" placeholder="Titulo">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputText2">Motivos Solicitud</label>
+        <textarea class="form-control" id="exampleInputText2" cols="20" rows="10" placeholder="Descripción"></textarea>
+      </div>
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label text-muted" for="exampleCheck1">Acepta terminos y condiciones de privacidad.</label>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-danger" (click)="modal.close('Close click')">Cerrar</button>
+    <button type="button" class="btn btn-success" (click)="openBackDropCustomClass(info); modal.dismiss('Cross click')">Enviar</button>
+  </div>
+</ng-template>
+
+<ng-template #factura let-modal>
+  <div class="modal-header modal-mapa">
+    <h4 class="modal-title text-center">Factura del pedido</h4>
+    <button type="button" class="close text-light" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="container">
+      <div class="row factura">
+        <app-factura></app-factura>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-danger" (click)="modal.close('Close click')">Close</button>
+    <button class="btn btn-success">Descargar</button>
+  </div>
+</ng-template>
+
+<ng-template #info let-modal>
+  <div class="modal-header modal-mapa">
+    <h4 class="modal-title text-center">Información del pedido</h4>
+    <button type="button" class="close text-light" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="card-body">
+      <table class="table table-striped">
+          <thead>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Usuario</th>
+              <td>{{orden.name}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Telefono</th>
+              <td>{{orden.phone}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Fecha</th>
+              <td>{{orden.date}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Direccion</th>
+              <td>{{orden.deliveryAddress}}</td>
+            </tr>
+            <tr *ngFor = "let product of orden.products">
+              <th scope="row">Producto:</th>
+              <td>{{product.product}}, cantida: {{product.quantity}}<br><span class="text-muted">{{product.description}}</span></td>
+            </tr>
+            <tr>
+              <th scope="row">Precio</th>
+              <td>HNL {{orden.price}}</td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-danger" (click)="modal.close('Close click')">Close</button>
+    <button class="btn btn-success">Descargar</button>
+  </div>
+</ng-template>
+

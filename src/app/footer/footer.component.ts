@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { UsuariosService } from '../services/usuarios.service';
 
 @Component({
   selector: 'app-footer',
@@ -6,8 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
+  @Output() onVerOrdenesDisponibles = new EventEmitter();
 
-  constructor() { }
+  constructor(private usuarioServicios:UsuariosService) { }
 
   ngOnInit(): void {
   }
