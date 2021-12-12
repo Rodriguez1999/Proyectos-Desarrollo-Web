@@ -19,7 +19,6 @@ export class CrearMotoristaComponent implements OnInit {
     department: "",
     licensePlate: "",
     address: "",
-    username: "default",
     email: "",
     password: "",
     status: 0,
